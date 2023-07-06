@@ -5,7 +5,7 @@ metadata:
     app: apache-mesh
     release: prometheus-operator
   name: prometheus-apache
-#  namespace: cz-istio
+  namespace: apache-mesh
 spec:
   endpoints:
   - path: /metrics
@@ -17,9 +17,10 @@ spec:
       certFile: /etc/istio-certs/cert-chain.pem
       keyFile: /etc/istio-certs/key.pem
       insecureSkipVerify: true
-#  namespaceSelector:
-#    matchNames:
-#    - cz-istio
+  namespaceSelector:
+    matchNames:
+    - apache-mesh
   selector:
     matchLabels:
       app: apache-mesh
+      app.kubernetes.io/component: metrics
