@@ -4,7 +4,7 @@ metadata:
   name: apache-virtualservice
 spec:
   hosts:
-  - apache.default.158.178.230.133.nip.io
+  - apache-mesh.apache-mesh.158.178.236.145.nip.io
   gateways:
   - apache-gateway
   http:
