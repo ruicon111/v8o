@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata: 
   labels:
-    app: apache
+    app: apache-mesh
     release: prometheus-operator
   name: prometheus-apache
 #  namespace: cz-istio
