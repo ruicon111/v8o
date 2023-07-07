@@ -14,10 +14,26 @@ spec:
     spec:
       containers:
       - name: apache
+        env:
+        - name: BITNAMI_DEBUG
+          value: "false"
+        - name: APACHE_HTTP_PORT_NUMBER
+          value: "8080"
+        - name: APACHE_HTTPS_PORT_NUMBER
+          value: "8443"
         image: docker.io/bitnami/apache:2.4.57-debian-11-r24
         ports:
-        - containerPort: 80
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        - containerPort: 8443
+          name: https
+          protocol: TCP
+
       - name: metrics
+        env:
+          - name: BITNAMI_DEBUG
+            value: "false"
         image: docker.io/bitnami/apache-exporter:0.13.4-debian-11-r1
         command:
           - /bin/apache_exporter
