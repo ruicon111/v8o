@@ -4,6 +4,8 @@ metadata:
   name: apache-mesh
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
+    istio-injection: enabled
+    verrazzano-managed: true
   labels:
     istio-injection: enabled
     verrazzano-managed: true
