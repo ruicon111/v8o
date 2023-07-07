@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: apache-virtualservice
+spec:
+  hosts:
+  - apache-mesh.apache-mesh.158.178.236.145.nip.io
+  gateways:
+  - apache-gateway
+  http:
+    - name: "v1"
+      route:
+      - destination:
+          host: apache-servicemesh

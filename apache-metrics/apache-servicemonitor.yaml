@@ -1,0 +1,25 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata: 
+  labels:
+    app: apache-mesh
+    release: prometheus-operator
+  name: prometheus-apache
+  namespace: apache-mesh
+spec:
+  endpoints:
+  - path: /metrics
+    port: metrics
+    scheme: https
+    enableHttp2: false
+    tlsConfig:
+      caFile: /etc/istio-certs/root-cert.pem
+      certFile: /etc/istio-certs/cert-chain.pem
+      keyFile: /etc/istio-certs/key.pem
+      insecureSkipVerify: true
+  namespaceSelector:
+    matchNames:
+    - apache-mesh
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: metrics
