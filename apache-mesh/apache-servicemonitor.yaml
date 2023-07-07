@@ -22,5 +22,4 @@ spec:
     - apache-mesh
   selector:
     matchLabels:
-      app: apache-mesh
       app.kubernetes.io/component: metrics
